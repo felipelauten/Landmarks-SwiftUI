@@ -16,10 +16,8 @@ struct LandmarksApp: App {
             ContentView()
                 .environmentObject(modelData)
         }
+        #if os(watchOS)
+        WKNotificationScene(controller: NotificationController.self, category: "LandmarkNear")
+        #endif
     }
-
-//    FIXME: This doesn't work, see why!
-//    #if os(watchOS)
-//    WKNotificationScene(controller: NotificationController.self, category: "LandmarkNear")
-//    #endif
 }
